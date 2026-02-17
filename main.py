@@ -1,28 +1,35 @@
+# Importa as bibliotecas responsáveis pela medição da velocidade e pela janela
 import speedtest
 import tkinter as tk
 
+# Cria a janela da aplicação
 janela = tk.Tk()
 janela.title("SpeedTest")
 
+# Função para medir a velocidade da internet e mostrar os resultados na janela
 def resultados():
-
+    # Objeto prara realizar as medições
     teste = speedtest.Speedtest()
 
-    vd = teste.download()
+    # Mede a velocidade do download (em bits/s)
+    v_download = teste.download()
 
-    vp = teste.upload()
+    # Mede a velocidade do upload (em bits/s)
+    v_upload = teste.upload()
 
+    # mede o ping
     ping = teste.results.ping
 
-    resultadod = tk.Label(text=f'Velocidade download: {vd / 10**6:.2f}', width=30, height=1)
-    resultadod.grid(row=1, column=1)
+    # Exibe os resultados na janela convertendo para megabits/s
+    resultado_download = tk.Label(text=f'Velocidade download: {vd / 10**6:.2f}', width=30, height=1)
+    resultado_download.grid(row=1, column=1)
 
-    resultadou = tk.Label(text=f' Velocidade upload: {vp / 10**6:.2f}', width=30, height=1)
-    resultadou.grid(row=1, column=2)
+    resultado_upload = tk.Label(text=f' Velocidade upload: {vp / 10**6:.2f}', width=30, height=1)
+    resultado_upload.grid(row=1, column=2)
 
-    resultadop = tk.Label(text=f'Ping: {ping:.2f}', width=30, height=1)
-    resultadop.grid(row=1, column=3)
-    return resultadod, resultadou, resultadop
+    resultado_ping = tk.Label(text=f'Ping: {ping:.2f}', width=30, height=1)
+    resultado_ping.grid(row=1, column=3)
+    return resultado_download, resultado_upload, resultado_ping
 
 resultados()
 
