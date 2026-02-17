@@ -21,10 +21,10 @@ def resultados():
     ping = teste.results.ping
 
     # Exibe os resultados na janela convertendo para megabits/s
-    resultado_download = tk.Label(text=f'Velocidade download: {vd / 10**6:.2f}', width=30, height=1)
+    resultado_download = tk.Label(text=f'Velocidade download: {v_download / 10**6:.2f}', width=30, height=1)
     resultado_download.grid(row=1, column=1)
 
-    resultado_upload = tk.Label(text=f' Velocidade upload: {vp / 10**6:.2f}', width=30, height=1)
+    resultado_upload = tk.Label(text=f' Velocidade upload: {v_upload / 10**6:.2f}', width=30, height=1)
     resultado_upload.grid(row=1, column=2)
 
     resultado_ping = tk.Label(text=f'Ping: {ping:.2f}', width=30, height=1)
